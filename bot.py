@@ -26,6 +26,9 @@ async def hello(ctx):
 async def ping(ctx):
     await Bot.say("Pong!")
   
+@Bot.command(pass_context= True)
+async def hellome(ctx):
+    await Bot.say("Привет {}".format(ctx.message.author))
 
 
 token = os.environ.get('BOT_TOKEN')
