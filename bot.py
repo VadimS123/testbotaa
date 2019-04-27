@@ -4,11 +4,30 @@ import os
  
 Bot = commands.Bot(command_prefix='<')
  
- 
+ban_msg = ["discord.gg", "пидор","хуй","ебал","уебок","сука","бля","говно"]
+
 @Bot.event
 async def on_ready():
     print("Now bot is online")
  
+@Bot.event
+async def on_message(msg)
+ for i in ban_msg:
+  if i in msg.content:
+   await Bot.delete_message(msg)
+await Bot.process_commands(msg)
+
+@Bot.command(pass_context= True)
+async def create_role(ctx):
+ name_role = ''.join(ctx.message.content.split(' ')[1:])
+ server = ctx.message.server
+ new_role = await Bot.create_role(server)
+ await Bot.edit_role(server, new_role, name= name_role)
+ await Bot.say("Роль создана!")
+
+@Bot.command(pass_context= True)
+async def ban(ctx, user: discord.Member):
+   await Bot.ban(user)
  
 @Bot.command(pass_context=True)
 async def test(ctx):
@@ -20,11 +39,13 @@ async def author(ctx):
  
 @Bot.command(pass_context=True)
 async def hello(ctx):
-    await Bot.say("(@everyone)Привет всем!")
+    await Bot.say("(@everyone) Привет всем!")
 
 @Bot.command(pass_context=True)
 async def ping(ctx):
     await Bot.say("Pong!")
+  
+
 
 @Bot.command(pass_context= True)
 async def info(ctx,user: discord.User):
