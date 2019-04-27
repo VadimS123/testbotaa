@@ -18,14 +18,6 @@ async def on_message(msg)
 await Bot.process_commands(msg)
 
 @Bot.command(pass_context= True)
-async def create_role(ctx):
- name_role = ''.join(ctx.message.content.split(' ')[1:])
- server = ctx.message.server
- new_role = await Bot.create_role(server)
- await Bot.edit_role(server, new_role, name= name_role)
- await Bot.say("Роль создана!")
-
-@Bot.command(pass_context= True)
 async def ban(ctx, user: discord.Member):
    await Bot.ban(user)
  
