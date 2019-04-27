@@ -12,7 +12,7 @@ async def on_ready():
  
 @Bot.command(pass_context=True)
 async def test(ctx):
-    await Bot.say("Look it works!")
+    await Bot.say("Работаю стабильно!")
 
 @Bot.command(pass_context=True)
 async def author(ctx):
@@ -30,7 +30,19 @@ async def ping(ctx):
 async def hellome(ctx):
     await Bot.say("Привет {}".format(ctx.message.author.mention))
 
-
+@Bot.command(pass_context= True)
+async def info(ctx,user: discord.User):
+ emb = discord.embed(title= "title",set_image("https://imgur.com/a/DABtCTJ",url))
+ await Bot.say("Name:  {}".format(user.name.mention))
+ await Bot.say()
+  
+  
+  
+  
+  
+  
+  
+ 
 token = os.environ.get('BOT_TOKEN')
 
 Bot.run(str(token))
