@@ -27,8 +27,8 @@ async def ping(ctx):
     await Bot.say("Pong!")
   
 @Bot.command(pass_context= True)
-async def hellome(ctx):
-    await Bot.say("Привет {}".format(ctx.message.author.mention))
+async def helloto(ctx, user.mention):
+    await Bot.say("Привет {}".format(ctx.message.user.mention))
 
 @Bot.command(pass_context= True)
 async def info(ctx,user: discord.User):
@@ -40,6 +40,7 @@ async def info(ctx,user: discord.User):
  emb.set_footer(text= "Запрошено: {}".format(user.name), icon_url= user.avatar_url)
  await Bot.say(embed= emb)
  await Bot.delete_message(ctx.message)
+ 
 
 
 token = os.environ.get('BOT_TOKEN')
