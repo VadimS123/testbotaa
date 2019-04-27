@@ -19,16 +19,14 @@ async def author(ctx):
     await Bot.say("Автор бота: Вадим#2677")
  
 @Bot.command(pass_context=True)
-async def helloe(ctx):
+async def hello(ctx):
     await Bot.say("(@everyone)Привет всем!")
 
 @Bot.command(pass_context=True)
 async def ping(ctx):
     await Bot.say("Pong!")
+  
 
-@Bot.command(pass_context=True)
-async def rules(ctx):
-    await Bot.say("Правила читать в кнале #Правила")
 
 token = os.environ.get('BOT_TOKEN')
 
