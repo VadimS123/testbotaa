@@ -32,21 +32,15 @@ async def hellome(ctx):
 
 @Bot.command(pass_context= True)
 async def info(ctx,user: discord.User):
- emb = discord.Embed(title= "title",colour= 0x39d0d6)
+ emb = discord.Embed(title= "Информация о пользователе {}".format(user.name.mention),colour= 0x39d0d6)
  emb.add_field(name= "Name", value= user.name)
  emb.add_field(name= "ID:",value= user.id)
  emb.add_thumbnail(url= user.avatar_url)
  emb.set_author(name= Bot.user.name,url= "https://discordapp.com/oauth2/authorize?&client_id=570899950649606144&scope=bot&permissions=8")
  emb.set_footer(text= "Запрошено: {}".format(user.name), icon_url= user.avatar_url
  await Bot.say(embed= emb)
-  
-  
-  
-  
-  
-  
-  
- 
+
+
 token = os.environ.get('BOT_TOKEN')
 
 Bot.run(str(token))
