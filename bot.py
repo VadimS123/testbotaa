@@ -32,7 +32,7 @@ async def hellome(ctx):
 
 @Bot.command(pass_context= True)
 async def info(ctx,user: discord.User):
- emb = discord.embed(title= "title",colour= 0x39d0d6)
+ emb = discord.Embed(title= "title",colour= 0x39d0d6)
  emb.add_field(name= "Name", value= user.name)
  emb.add_field(name= "ID:",value= user.id)
  emb.add_thumbnail(url= user.avatar_url)
