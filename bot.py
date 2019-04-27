@@ -25,10 +25,6 @@ async def hello(ctx):
 @Bot.command(pass_context=True)
 async def ping(ctx):
     await Bot.say("Pong!")
-  
-@Bot.command(pass_context= True)
-async def helloto(ctx, user: dicord.User):
-    await Bot.say("Привет {}".format(ctx.message.user.mention))
 
 @Bot.command(pass_context= True)
 async def info(ctx,user: discord.User):
