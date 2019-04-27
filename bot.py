@@ -3,23 +3,12 @@ from discord.ext import commands
 import os
  
 Bot = commands.Bot(command_prefix='<')
- 
-ban_msg = ["discord.gg", "пидор","хуй","ебал","уебок","сука","бля","говно"]
+
+
 
 @Bot.event
 async def on_ready():
     print("Now bot is online")
- 
-@Bot.event
-async def on_message(msg)
- for i in ban_msg:
-  if i in msg.content:
-   await Bot.delete_message(msg)
-await Bot.process_commands(msg)
-
-@Bot.command(pass_context= True)
-async def ban(ctx, user: discord.Member):
-   await Bot.ban(user)
  
 @Bot.command(pass_context=True)
 async def test(ctx):
