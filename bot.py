@@ -32,7 +32,7 @@ async def hellome(ctx):
 
 @Bot.command(pass_context= True)
 async def info(ctx,user: discord.User):
- emb = discord.embed(title= "title",set_image("https://imgur.com/a/DABtCTJ",url))
+ emb = discord.embed(title= "title")
  await Bot.say("Name:  {}".format(user.name.mention))
  await Bot.say()
   
