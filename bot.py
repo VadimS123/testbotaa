@@ -36,7 +36,6 @@ async def info(ctx,user: discord.User):
  emb.add_field(name= "Name", value= "Value")
  emb.add_thumbnail(url= user.avatar_url)
  emb.set_author(name= "Author",url= user.avatar.url)
- emb.set_image(name="Name",url= https://imgur.com/a/DABtCTJ)
  await Bot.say(embed= emb)
   
   
