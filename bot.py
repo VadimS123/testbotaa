@@ -31,3 +31,5 @@ async def rules(ctx):
     await Bot.say("Правила читать в кнале #Правила")
 
 token = os.environ.get('BOT_TOKEN')
+
+bot.run(str(token))
