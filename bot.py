@@ -33,9 +33,12 @@ async def hellome(ctx):
 @Bot.command(pass_context= True)
 async def info(ctx,user: discord.User):
  emb = discord.embed(title= "title",colour= 0x39d0d6)
- emb.add_field(name= "Name", value= "Value")
+ emb.add_field(name= "Name", value= user.name)
+ emb.add_field(name= "ID:",value= user.id)
+ emb.add_image(url= "https://imgur.com/a/DABtCTJ")
  emb.add_thumbnail(url= user.avatar_url)
- emb.set_author(name= "Author",url= user.avatar.url)
+ emb.set_author(name= Bot.user.name,url= "https://discordapp.com/oauth2/authorize?&client_id=570899950649606144&scope=bot&permissions=8")
+ emb.set_footer(text= "Запрошено: {}".format(user.name), icon_url= user.avatar_url
  await Bot.say(embed= emb)
   
   
