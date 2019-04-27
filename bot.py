@@ -39,6 +39,7 @@ async def info(ctx,user: discord.User):
  emb.set_author(name= Bot.user.name,url= "https://discordapp.com/oauth2/authorize?&client_id=570899950649606144&scope=bot&permissions=8")
  emb.set_footer(text= "Запрошено: {}".format(user.name), icon_url= user.avatar_url
  await Bot.say(embed= emb)
+ await Bot.delete_message(ctx.message)
 
 
 token = os.environ.get('BOT_TOKEN')
