@@ -13,17 +13,6 @@ async def on_ready():
 @Bot.command(pass_context=True)
 async def test(ctx):
     await Bot.say("Работаю стабильно!")
-  
-@Bot.command(pass_context= True)
-async def help(ctx):
- emb = discord.Embed(title= "Мои комманды:", colour= 0x39d0d6
- emb.add_field(name= "{}help".format(prefix), value= "Меню помощи")
- emb.add_field(name= "{}author".format(prefix),value= "Автор бота")
- emb.add_field(name= "{}hello".format(prefix),value= "посылает всем привет")
- emb.add_field(name= "{}ping".format(prefix),value= "Задержка")
- emb.add_field(name= "{}info @user".format(prefix),value= "информация о пользователе")
- await Bot.say (embed= emb)
- await Bot.delete_message(ctx.message)
  
 
 @Bot.command(pass_context=True)
