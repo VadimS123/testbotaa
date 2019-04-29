@@ -25,7 +25,6 @@ async def help(ctx):
     emb.add_field(name= "<say (текст)", value= "Админ комманда!")
     emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Вадим#2677")
     await Bot.say (embed= emb)
-    await Bot.delete_message(ctx.message)
 
 
 @Bot.command(pass_context=True)
