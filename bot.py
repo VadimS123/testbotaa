@@ -52,7 +52,12 @@ async def info(ctx,user: discord.User):
  await Bot.say(embed= emb)
  await Bot.delete_message(ctx.message)
  
-
+ @Bot.command(pass_context= True)
+@commands.has_permissions(administrator= True)
+async def say(ctx):
+    await Bot.say(ctx.message.content[4:])
+    await Bot.delete_message(ctx.message)
+ 
 
 token = os.environ.get('BOT_TOKEN')
 
