@@ -18,6 +18,7 @@ async def test(ctx):
 async def help(ctx):
     emb = discord.Embed(title= "Мои комманды:", colour= 0x39d0d6)
     emb.add_field(name= "<help", value= "Меню помощи")
+    emb.add_field(name= "<botinfo",value= "Автор бота")
     emb.add_field(name= "<hello",value= "посылает всем привет")
     emb.add_field(name= "<ping",value= "Задержка")
     emb.add_field(name= "<info @user",value= "информация о пользователе")
@@ -26,6 +27,11 @@ async def help(ctx):
     await Bot.say (embed= emb)
     await Bot.delete_message(ctx.message)
 
+
+@Bot.command(pass_context=True)
+async def botinfo(ctx):
+    await Bot.say("Автор бота: Вадим#2677")
+    await Bot.say("Официальная группа ВК: vk.com/truenobot_official")
  
 @Bot.command(pass_context=True)
 async def hello(ctx):
@@ -34,6 +40,7 @@ async def hello(ctx):
 @Bot.command(pass_context=True)
 async def ping(ctx):
     await Bot.say("Pong!")
+  
 
 
 @Bot.command(pass_context= True)
@@ -53,6 +60,7 @@ async def info(ctx, user: discord.User):
 async def say(ctx):
     await Bot.say(ctx.message.content[4:])
     await Bot.delete_message(ctx.message)
+
 
 
 token = os.environ.get('BOT_TOKEN')
