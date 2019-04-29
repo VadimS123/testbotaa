@@ -18,11 +18,9 @@ async def test(ctx):
 async def help(ctx):
     emb = discord.Embed(title= "Мои комманды:", colour= 0x39d0d6)
     emb.add_field(name= "<help", value= "Меню помощи")
-    emb.add_field(name= "<author",value= "Автор бота")
     emb.add_field(name= "<hello",value= "посылает всем привет")
     emb.add_field(name= "<ping",value= "Задержка")
     emb.add_field(name= "<info @user",value= "информация о пользователе")
-    emb.add_field(name= "<botinfo", value= "разработчик и группа разработки")
     emb.add_field(name= "<say (текст)", value= "Админ комманда!")
     emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Вадим#2677")
     await Bot.say (embed= emb)
@@ -36,14 +34,6 @@ async def hello(ctx):
 @Bot.command(pass_context=True)
 async def ping(ctx):
     await Bot.say("Pong!")
-  
-
-@Bot.command(pass_context= True)
-async def group(ctx):
-    emb = discord.Embed(title= "Официальная группа бота", colour= 0x39d0d6)
-    emb.add_thumbnail(url= "https://vk.com/truenobot_official")
-    emb.add_field(name= "Разработчик: ", value= "Вадим#2677")
-    await Bot.say(emb= embed)
 
 
 @Bot.command(pass_context= True)
