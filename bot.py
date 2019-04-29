@@ -22,16 +22,12 @@ async def help(ctx):
     emb.add_field(name= "<hello",value= "посылает всем привет")
     emb.add_field(name= "<ping",value= "Задержка")
     emb.add_field(name= "<info @user",value= "информация о пользователе")
-    emb.add_field(name= "<group", value= "оффициальная группа бота в ВК")
+    emb.add_field(name= "<botinfo", value= "разработчик и группа разработки")
     emb.add_field(name= "<say (текст)", value= "Админ комманда!")
     emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Вадим#2677")
     await Bot.say (embed= emb)
     await Bot.delete_message(ctx.message)
 
-
-@Bot.command(pass_context=True)
-async def author(ctx):
-    await Bot.say("Автор бота: Вадим#2677")
  
 @Bot.command(pass_context=True)
 async def hello(ctx):
@@ -44,8 +40,9 @@ async def ping(ctx):
 
 @Bot.command(pass_context= True)
 async def group(ctx):
-    emb = discord.Embed(title= "Официальная групра бота", colour= 0x39d0d6)
-    emb.add_thumbnail(url= "vk.com/truenobot")
+    emb = discord.Embed(title= "Официальная группа бота", colour= 0x39d0d6)
+    emb.add_thumbnail(url= "https://vk.com/truenobot_official")
+    emb.add_field(name= "Разработчик: ", value= "Вадим#2677")
     await Bot.say(emb= embed)
 
 
