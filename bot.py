@@ -60,6 +60,10 @@ async def say(ctx):
     await Bot.say(ctx.message.content[4:])
     await Bot.delete_message(ctx.message)
 
+@Bot.command(pass_context= True)
+async def asay(ctx):
+    await Bot.say(ctx.message.content[5:])
+    await Bot.delete_message(ctx.message)
 
 
 token = os.environ.get('BOT_TOKEN')
