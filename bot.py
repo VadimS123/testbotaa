@@ -26,6 +26,18 @@ async def help(ctx):
     emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Вадим#2677")
     await Bot.say (embed= emb)
 
+@Bot.command(pass_context= True)
+async def avatar(ctx, user: discord.User = None):
+    if user == None:
+        emb = discord.Embed(title= "Аватар пользователя: `{}`".format(ctx.message.author), colour= 0x249bcc)
+        emb.set_image(url= ctx.message.author.avatar_url)
+        await Bot.say(embed= emb)
+    elif 1 == 1:
+        emb = discord.Embed(title= "Аватар пользователя: `{}`".format(user), colour= 0x249bcc)
+        emb.set_image(url= user.avatar_url)
+        await Bot.say(embed= emb)
+    await asyncio.sleep(5)
+    await Bot.delete_message(ctx.message)
 
 @Bot.command(pass_context=True)
 async def botinfo(ctx):
