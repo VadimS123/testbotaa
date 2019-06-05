@@ -18,13 +18,17 @@ async def test(ctx):
 async def help(ctx):
     emb = discord.Embed(title= "Мои комманды:", colour= 0x39d0d6)
     emb.add_field(name= "<help", value= "Меню помощи")
-    emb.add_field(name= "<botinfo",value= "Автор бота")
+    emb.add_field(name= "<author",value= "Автор бота")
     emb.add_field(name= "<hello",value= "посылает всем привет")
     emb.add_field(name= "<ping",value= "Задержка")
     emb.add_field(name= "<info @user",value= "информация о пользователе")
     emb.add_field(name= "<say (текст)", value= "Админ комманда!")
+    emb.add_field(name= "<avatar @user", value= "посмотреть аватар пользователя или свой аватар")
+    emb.add_field(name= "<ban @user", value= "забанить пользователя")
+    emb.add_field(name= "<kick @user", value= "кикнуть пользователя")
     emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Вадим#2677")
     await Bot.say (embed= emb)
+
 
 @Bot.command(pass_context= True)
 async def avatar(ctx, user: discord.User = None):
@@ -52,6 +56,16 @@ async def hello(ctx):
 async def ping(ctx):
     await Bot.say("Pong!")
   
+@Bot.command(pass_context= True)
+async def avatar(ctx, user: discord.User = None):
+    if user == None:
+        emb = discord.Embed(title= "Аватар пользователя: `{}`".format(ctx.message.author), colour= 0x249bcc)
+        emb.set_image(url= ctx.message.author.avatar_url)
+        await Bot.say(embed= emb)
+    elif 1 == 1:
+        emb = discord.Embed(title= "Аватар пользователя: `{}`".format(user), colour= 0x249bcc)
+        emb.set_image(url= user.avatar_url)
+        await Bot.say(embed= emb)
 
 
 @Bot.command(pass_context= True)
@@ -65,6 +79,32 @@ async def info(ctx, user: discord.User):
     await Bot.say(embed= emb)
     await Bot.delete_message(ctx.message)
  
+ @Bot.event
+async def on_message_delete(message):
+    channel2 = message.channel
+    channel = discord.utils.get(message.server.channels, name="логи-бота")
+    emb = discord.Embed(title= "`Сообщение было удалено.`", colour= 0xe74c3c)
+    emb.add_field(name= "Удалённое сообщение: ", value= "{}".format(message.content), inline= False)
+    emb.add_field(name= "Автор сообщения: ", value= "**{}({})**".format(message.author, message.author.mention), inline= False)
+    emb.add_field(name= "В канале: ", value= "**{}({})**".format(message.channel, message.channel.mention))
+    emb.set_footer(text= "ID сообщения: **{}**  | Сегодня в {}".format(message.id, str(message.timestamp.strftime("%X"))))
+    await Bot.send_message(channel, embed = emb)
+
+@Bot.command(pass_context= True)
+@commands.has_permissions(ban_members=True)
+async def ban(ctx, user: discord.User, reason= None):
+    await Bot.ban(user)
+    await Bot.delete_message(ctx.message)
+    emb = discord.Embed(title= "**Участник {}, был забанен.**".format(user), colour= 0xb0fe0a)
+    await Bot.say(embed= emb)
+
+@Bot.command(pass_context= True)
+@commands.has_permissions(kick_members=True)
+async def kick(ctx, user: discord.User, reason= None):
+    await Bot.kick(user)
+    await Bot.delete_message(ctx.message)
+    emb = discord.Embed(title= "**Участник __{}__, был кикнут.**".format(user), colour= 0x3600ff)
+    await Bot.say(embed= emb)
 
 @Bot.command(pass_context= True)
 @commands.has_permissions(administrator= True)
