@@ -117,7 +117,7 @@ async def dem(ctx):
    
  embed = discord.Embed(colour = 0xff000, description = f'https://discordapp.com/channels/{Guild}/{channel}')
     
- await ctx.send(embed = embed)
+ await Bot.say(embed = embed)
 
     
 @Bot.command(pass_context= True)
