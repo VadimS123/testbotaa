@@ -115,7 +115,7 @@ async def dem(ctx):
  Guild = ctx.message.guild.id
  channel = ctx.message.author.voice.channel.id
    
- emb = discord.Embed(colour = 0xff000, description = f'https://discordapp.com/channels/{Guild}/{channel}')
+ emb = discord.Embed(title= "https://discordapp.com/channels/{}/{}".format(message.guild.id, str(message.author.voice.channel.id)))
     
  await Bot.say(embed= emb)
 
