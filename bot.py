@@ -111,11 +111,8 @@ async def ban(ctx, user: discord.User, reason= None):
 
 @Bot.command(brief = 'Сделать звонок на сервере')
 async def dem(ctx):
-    
- Guild = ctx.message.guild.id
- channel = ctx.message.author.voice.channel.id
    
- emb = discord.Embed(title= "https://discordapp.com/channels/{}/{}".format(message.guild.id, str(message.author.voice.channel.id)))
+ emb = discord.Embed(title= "https://discordapp.com/channels/{}/{}".format(message.guild.id, message.author.voice.channel.id)))
     
  await Bot.say(embed= emb)
 
