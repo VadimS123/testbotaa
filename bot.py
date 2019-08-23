@@ -34,6 +34,7 @@ async def help(ctx):
     emb.add_field(name= "<ban @user", value= "забанить пользователя")
     emb.add_field(name= "<kick @user", value= "кикнуть пользователя")
     emb.add_field(name= "<dem", value= "Показать демку на сервере дискорд! (вы должны быть в звонке)")
+    emb.add_field(name= "Чтобы у бота были логи,", value= "Вы должны создать текстовый канал с названием Logs")
     emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Hatsune Miku#2677")
     await Bot.say (embed= emb)
 
@@ -110,13 +111,10 @@ async def ban(ctx, user: discord.User, reason= None):
 
 @Bot.command(brief = 'Сделать звонок на сервере')
 async def dem(ctx):
-
     Guild = ctx.message.guild.id
     channel = ctx.message.author.voice.channel.id
-
     embed = discord.Embed(colour = 0xff000, description = f'https://discordapp.com/channels/{Guild}/{channel}')
-
-    await ctx.send(embed = embed)
+await ctx.send(embed = embed)
 
 
 
