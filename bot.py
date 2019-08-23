@@ -33,7 +33,6 @@ async def help(ctx):
     emb.add_field(name= "<avatar @user", value= "посмотреть аватар пользователя или свой аватар")
     emb.add_field(name= "<ban @user", value= "забанить пользователя")
     emb.add_field(name= "<kick @user", value= "кикнуть пользователя")
-    emb.add_field(name= "<dem", value= "Показать демку на сервере дискорд! (вы должны быть в звонке)")
     emb.add_field(name= "Чтобы у бота были логи,", value= "Вы должны создать текстовый канал с названием Logs")
     emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Hatsune Miku#2677")
     await Bot.say (embed= emb)
@@ -97,16 +96,7 @@ async def on_message_delete(message):
     emb.set_footer(text= "ID сообщения: **{}**  | Сегодня в {}".format(message.id, str(message.timestamp.strftime("%X"))))
     await Bot.send_message(channel, embed = emb)
 
-@Bot.command(brief = 'Сделать звонок на сервере')
-async def call(ctx):
-
-    Guild = ctx.message.guild.id
-    channel = ctx.message.author.voice.channel.id
-
-    embed = discord.Embed(colour = 0xff000, description = f'https://discordapp.com/channels/{Guild}/{channel}')
-
-    await ctx.send(embed = embed)
-
+    
 @Bot.command(pass_context= True)
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, user: discord.User, reason= None):
