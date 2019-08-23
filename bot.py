@@ -89,7 +89,7 @@ async def avatar(ctx, user: discord.User = None):
 @Bot.event
 async def on_message_delete(message):
     channel2 = message.channel
-    channel = discord.utils.get(message.server.channels, name="логи-бота")
+    channel = discord.utils.get(message.server.channels, name="Logs")
     emb = discord.Embed(title= "`Сообщение было удалено.`", colour= 0xe74c3c)
     emb.add_field(name= "Удалённое сообщение: ", value= "{}".format(message.content), inline= False)
     emb.add_field(name= "Автор сообщения: ", value= "**{}({})**".format(message.author, message.author.mention), inline= False)
@@ -111,13 +111,15 @@ async def ban(ctx, user: discord.User, reason= None):
 
 @Bot.command(brief = 'Сделать звонок на сервере')
 async def dem(ctx):
-    Guild = ctx.message.guild.id
-    channel = ctx.message.author.voice.channel.id
-    embed = discord.Embed(colour = 0xff000, description = f'https://discordapp.com/channels/{Guild}/{channel}')
-await ctx.send(embed = embed)
+    
+ Guild = ctx.message.guild.id
+ channel = ctx.message.author.voice.channel.id
+   
+ embed = discord.Embed(colour = 0xff000, description = f'https://discordapp.com/channels/{Guild}/{channel}')
+    
+ await ctx.send(embed = embed)
 
-
-
+    
 @Bot.command(pass_context= True)
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, user: discord.User, reason= None):
