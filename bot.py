@@ -136,6 +136,7 @@ async def say(ctx):
     await Bot.say(ctx.message.content[4:])
     await Bot.delete_message(ctx.message)
 
+   
 token = os.environ.get('BOT_TOKEN')
 
 Bot.run(str(token))
