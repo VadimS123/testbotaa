@@ -107,15 +107,6 @@ async def ban(ctx, user: discord.User, reason= None):
     emb = discord.Embed(title= "**Участник {}, был забанен.**".format(user), colour= 0xb0fe0a)
     await Bot.say(embed= emb)
 
-
-
-@Bot.command(brief = 'Сделать звонок на сервере')
-async def dem(ctx):
-   
- emb = discord.Embed(title= "https://discordapp.com/channels/{}/{}".format(message.guild.id, message.author.voice.channel.id)))
-    
- await Bot.say(embed= emb)
-
     
 @Bot.command(pass_context= True)
 @commands.has_permissions(kick_members=True)
