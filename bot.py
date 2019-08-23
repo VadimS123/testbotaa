@@ -97,13 +97,15 @@ async def on_message_delete(message):
     emb.set_footer(text= "ID сообщения: **{}**  | Сегодня в {}".format(message.id, str(message.timestamp.strftime("%X"))))
     await Bot.send_message(channel, embed = emb)
 
-async def dem(ctx):
-    Server = ctx.message.server.id
+@Bot.command(brief = 'Сделать звонок на сервере')
+async def call(ctx):
+
+    Guild = ctx.message.guild.id
     channel = ctx.message.author.voice.channel.id
 
-    embed = discord.Embed(colour = 0xff000, description = f'https://discordapp.com/channels/{Server}/{channel}')
-    
-    await Bot.say(embed= embed)
+    embed = discord.Embed(colour = 0xff000, description = f'https://discordapp.com/channels/{Guild}/{channel}')
+
+    await ctx.send(embed = embed)
 
 @Bot.command(pass_context= True)
 @commands.has_permissions(ban_members=True)
