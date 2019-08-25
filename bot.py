@@ -33,7 +33,7 @@ async def help(ctx):
     emb.add_field(name= "<avatar @user", value= "посмотреть аватар пользователя или свой аватар")
     emb.add_field(name= "<ban @user", value= "забанить пользователя")
     emb.add_field(name= "<kick @user", value= "кикнуть пользователя")
-    emb.add_field(name= "Чтобы у бота были логи,", value= "Вы должны создать текстовый канал с названием Logs")
+    emb.add_field(name= "чтобы у бота были логи,", value= "создайте ткстовый канал логи")
     emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Hatsune Miku#2677")
     await Bot.say (embed= emb)
 
@@ -88,7 +88,7 @@ async def avatar(ctx, user: discord.User = None):
 @Bot.event
 async def on_message_delete(message):
     channel2 = message.channel
-    channel = discord.utils.get(message.server.channels, name="логи")
+    channel = discord.utils.get(message.server.channels, name="Logs")
     emb = discord.Embed(title= "`Сообщение было удалено.`", colour= 0xe74c3c)
     emb.add_field(name= "Удалённое сообщение: ", value= "{}".format(message.content), inline= False)
     emb.add_field(name= "Автор сообщения: ", value= "**{}({})**".format(message.author, message.author.mention), inline= False)
@@ -96,7 +96,8 @@ async def on_message_delete(message):
     emb.set_footer(text= "ID сообщения: **{}**  | Сегодня в {}".format(message.id, str(message.timestamp.strftime("%X"))))
     await Bot.send_message(channel, embed = emb)
 
-    
+
+
 @Bot.command(pass_context= True)
 @commands.has_permissions(ban_members=True)
 async def ban(ctx, user: discord.User, reason= None):
@@ -105,7 +106,20 @@ async def ban(ctx, user: discord.User, reason= None):
     emb = discord.Embed(title= "**Участник {}, был забанен.**".format(user), colour= 0xb0fe0a)
     await Bot.say(embed= emb)
 
-    
+
+
+@Bot.command(brief = 'Сделать звонок на сервере')
+async def dem(ctx):
+
+    Guild = ctx.message.guild.id
+    channel = ctx.message.author.voice.channel.id
+
+    embed = discord.Emb(colour = 0xff000, description = f'https://discordapp.com/channels/{Guild}/{channel}')
+
+    await Bot.say(embed = emb)
+
+
+
 @Bot.command(pass_context= True)
 @commands.has_permissions(kick_members=True)
 async def kick(ctx, user: discord.User, reason= None):
