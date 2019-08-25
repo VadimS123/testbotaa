@@ -105,20 +105,8 @@ async def ban(ctx, user: discord.User, reason= None):
     await Bot.delete_message(ctx.message)
     emb = discord.Embed(title= "**Участник {}, был забанен.**".format(user), colour= 0xb0fe0a)
     await Bot.say(embed= emb)
-
-
-
-@Bot.command(brief = 'Сделать звонок на сервере')
-async def dem(ctx):
-
-    Guild = ctx.message.guild.id
-    channel = ctx.message.author.voice.channel.id
-
-    embed = discord.Emb(colour = 0xff000, description = f'https://discordapp.com/channels/{Guild}/{channel}')
-
-    await Bot.say(embed = emb)
-
-
+    
+    
 
 @Bot.command(pass_context= True)
 @commands.has_permissions(kick_members=True)
