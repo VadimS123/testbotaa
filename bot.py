@@ -88,7 +88,7 @@ async def avatar(ctx, user: discord.User = None):
 @Bot.event
 async def on_message_delete(message):
     channel2 = message.channel
-    channel = discord.utils.get(message.server.channels, name="Logs")
+    channel = discord.utils.get(message.server.channels, name="логи")
     emb = discord.Embed(title= "`Сообщение было удалено.`", colour= 0xe74c3c)
     emb.add_field(name= "Удалённое сообщение: ", value= "{}".format(message.content), inline= False)
     emb.add_field(name= "Автор сообщения: ", value= "**{}({})**".format(message.author, message.author.mention), inline= False)
