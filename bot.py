@@ -33,7 +33,7 @@ async def help(ctx):
     emb.add_field(name= "<avatar @user", value= "посмотреть аватар пользователя или свой аватар")
     emb.add_field(name= "<ban @user", value= "забанить пользователя")
     emb.add_field(name= "<kick @user", value= "кикнуть пользователя")
-    emb.add_field(name= "чтобы у бота были логи,", value= "создайте ткстовый канал логи")
+    emb.add_field(name= "чтобы у бота были логи,", value= "создайте текстовый канал логи")
     emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Arefedet#2677")
     await Bot.say (embed= emb)
 
