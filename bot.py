@@ -34,7 +34,7 @@ async def help(ctx):
     emb.add_field(name= "<ban @user", value= "забанить пользователя")
     emb.add_field(name= "<kick @user", value= "кикнуть пользователя")
     emb.add_field(name= "чтобы у бота были логи,", value= "создайте ткстовый канал логи")
-    emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Hatsune Miku#2677")
+    emb.add_field(name= "Скоро будет еще больше комманд!", value= "Обращайтесь за идеями к: Arefedet#2677")
     await Bot.say (embed= emb)
 
 
@@ -42,7 +42,7 @@ async def help(ctx):
 
 @Bot.command(pass_context=True)
 async def author(ctx):
-    await Bot.say("Автор бота: Hatsune Miku#2677")
+    await Bot.say("Автор бота: Arefedet#2677")
  
 
 
